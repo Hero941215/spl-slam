@@ -12,4 +12,4 @@ Prequisites and build are identical to [orb-slam2](https://github.com/raulmur/OR
 
 ## 2. Acknowledgments
 
-Thanks for[orb-slam2](https://github.com/raulmur/ORB_SLAM2).
+Thanks for [orb-slam2](https://github.com/raulmur/ORB_SLAM2).
