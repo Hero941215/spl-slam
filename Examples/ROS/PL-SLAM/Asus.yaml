@@ -1,0 +1,121 @@
+%YAML:1.0
+
+#--------------------------------------------------------------------------------------------
+# PL-SLAM System Parameters. Adjust them!
+#--------------------------------------------------------------------------------------------
+
+System.usingLine: 1
+
+#LSD线特征更为稳定，默认使用LSD线提取
+System.usingLsdFeature: 1
+
+#--------------------------------------------------------------------------------------------
+# Camera Parameters. Adjust them!
+#--------------------------------------------------------------------------------------------
+
+# Camera calibration and distortion parameters (OpenCV) 
+Camera.fx: 535.4
+Camera.fy: 539.2
+Camera.cx: 320.1
+Camera.cy: 247.6
+
+Camera.k1: 0.0
+Camera.k2: 0.0
+Camera.p1: 0.0
+Camera.p2: 0.0
+
+Camera.width: 640
+Camera.height: 480
+
+# Camera frames per second 
+Camera.fps: 30.0
+
+# IR projector baseline times fx (aprox.)
+Camera.bf: 40.0
+
+# Color order of the images (0: BGR, 1: RGB. It is ignored if images are grayscale)
+Camera.RGB: 1
+
+# Close/Far threshold. Baseline times.
+ThDepth: 40.0
+
+# Deptmap values factor
+DepthMapFactor: 1.0
+
+#--------------------------------------------------------------------------------------------
+# ORB Parameters
+#--------------------------------------------------------------------------------------------
+
+# ORB Extractor: Number of features per image(默认1000)
+ORBextractor.nFeatures: 720
+
+# ORB Extractor: Scale factor between levels in the scale pyramid 	
+ORBextractor.scaleFactor: 1.2
+
+# ORB Extractor: Number of levels in the scale pyramid	
+ORBextractor.nLevels: 6
+
+# ORB Extractor: Fast threshold
+# Image is divided in a grid. At each cell FAST are extracted imposing a minimum response.
+# Firstly we impose iniThFAST. If no corners are detected we impose a lower value minThFAST
+# You can lower these values if your images have low contrast			
+ORBextractor.iniThFAST: 20
+ORBextractor.minThFAST: 7
+
+#--------------------------------------------------------------------------------------------
+# Line Parameters(LSD/FLD-LBD)
+#--------------------------------------------------------------------------------------------
+
+# Line Extractor: Number of features per image
+Lineextractor.nFeatures: 180
+
+# Line Extractor: Number of levels in the scale pyramid	
+Lineextractor.nLevels: 2
+
+# LSD线特征提取相关参数设置（opencv）
+#是否重定义
+Lineextractor.refine: 0 
+#尺度金字塔参数，尺度因子(此参数也是FLD参数，参数减小降低计算时间）
+Lineextractor.scale: 1.05
+#下采样
+Lineextractor.sigma_scale: 0.8
+#像素误差(默认2，参数增大降低计算时间)
+Lineextractor.quant: 2.2
+#容许线梯度误差(默认22.5，参数减小降低计算时间)
+Lineextractor.ang_th: 12
+#最终NFA容错检测阈值
+Lineextractor.log_eps: 1.0
+#线特征矩阵有效像素比例(默认0.7)
+Lineextractor.density_th: 0.8
+#所有像素根据梯度分级排序
+Lineextractor.n_bins: 1024
+#最小线特征长度比例（ min_line_length = min_line_length_ratio * min( Camera.width, Camera.height，参数对系统鲁棒性影响很大 ）
+Lineextractor.min_line_length_ratio: 0.02
+
+# LSD线特征提取相关参数设置（opencv_contrib）
+#最小关键线长度
+Lineextractor.threshold_length: 15
+#从比此更远的假设线段放置的点将被视为异常值
+Lineextractor.threshold_dist: 1.732
+#canny参数
+Lineextractor.canny_th1: 50.0
+Lineextractor.canny_th2: 100.0
+Lineextractor.canny_aperture_size: 3
+#do_merge
+Lineextractor.do_merge: 0
+
+
+#--------------------------------------------------------------------------------------------
+# Viewer Parameters
+#--------------------------------------------------------------------------------------------
+Viewer.KeyFrameSize: 0.05
+Viewer.KeyFrameLineWidth: 1
+Viewer.GraphLineWidth: 0.9
+Viewer.PointSize: 2
+Viewer.CameraSize: 0.08
+Viewer.CameraLineWidth: 3
+Viewer.ViewpointX: 0
+Viewer.ViewpointY: -0.7
+Viewer.ViewpointZ: -1.8
+Viewer.ViewpointF: 500
+
